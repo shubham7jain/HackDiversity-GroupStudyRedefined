@@ -186,7 +186,7 @@ def joinGroup():
         cnx.commit()
         cursor.close()
         cnx.close()
-        return json.dumps({"message": "Group is joint successfully."})
+        return json.dumps({"message": "Group is joined successfully."})
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 33507))
