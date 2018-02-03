@@ -51,21 +51,24 @@ def getAllPosts():
                       database='student_groups')
     cursor = cnx.cursor()
 
-    query = ("SELECT `course`, `name`, `uin`, `startTime`, `endTime`, `location`, `capacity` from `Groups` where `endTime` > CURTIME()")
+    query = ("SELECT `course`, `name`, `uin`, `startTime`, `endTime`, `location`, `capacity` from `Groups`")
 
     cursor.execute(query)
 
+    current = datetime.datetime.now()
     result = []
     for (course, name, uin, startTime, endTime, location, capacity) in cursor:
-    	result.append({
-    		"course": course,
-    		"name": name,
-    		"uin": uin,
-    		"startTime": str(startTime),
-    		"endTime": str(endTime),
-    		"location": location,
-            "capacity": capacity
-    		})
+        end =  datetime.datetime.strptime(endTime, '%Y-%m-%d %H:%M:%S');
+        if(end > current):
+        	result.append({
+        		"course": course,
+        		"name": name,
+        		"uin": uin,
+        		"startTime": str(startTime),
+        		"endTime": str(endTime),
+        		"location": location,
+                "capacity": capacity
+        		})
 
     cursor.close()
     cnx.close()

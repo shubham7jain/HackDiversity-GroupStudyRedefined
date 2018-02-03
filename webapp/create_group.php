@@ -58,7 +58,7 @@
                success: function(data) {
                    //show content
                    obje = JSON.parse(data)
-                   document.getElementById('position').innerHTML = '<b>'.concat(obje.message, '</b>');
+                   document.getElementById('position').innerHTML = '<b><center>'.concat(obje.message, '</center></b>');
                    $( "#position" ).show( "slow", function() {
                      
                   });
