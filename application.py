@@ -38,7 +38,7 @@ def createGroup():
     	cnx.commit()
     	cursor.close()
     	cnx.close()
-    	return json.dumps('{"message": "Group is created successfully."}')
+    	return json.dumps({"message": "Group is created successfully."})
 
 @application.route('/getGroups')
 def getAllPosts():

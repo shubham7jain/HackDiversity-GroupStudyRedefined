@@ -188,9 +188,6 @@
             <img src="ajax-loader.gif" style="width:25% ">
             </img>
          </div>
-         <div id="title">
-            
-         </div>
          <div id="position">
          </div>
          <div id="error" class="alert alert-danger" role="alert" style="visibility:hidden; width: 50%; margin: auto;">
