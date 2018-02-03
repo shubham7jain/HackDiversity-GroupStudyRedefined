@@ -38,11 +38,11 @@
          
       </script>
       <script>
-        function joinGroup(postid) {
+        function joinGroup(postid, capacity) {
           $.ajax({
                type: "POST",
                url: "https://shrouded-fjord-25701.herokuapp.com/joinGroup",
-               data: JSON.stringify({'postid': postid}),
+               data: JSON.stringify({'postid': postid, 'capacity': capacity}),
                // dataType: 'json',
                contentType: 'application/json; charset=UTF-8',
                success: function(data) {
@@ -63,7 +63,7 @@
             });
             return false;
         }
-        
+
         function myFunction() {
             document.getElementById("error").style.visibility = "hidden";
            document.getElementById("loading").style.visibility = "visible";
@@ -77,7 +77,7 @@
                    rows = "<div id='groups'><table class='table'><thead><tr><th><b>Index</b></th><th><b>Host Name</b></th><th><b>Course</b></th><th><b>Time range</b></th><th><b>Location</b></th><th><b>Capacity</b></th><th><b>Join Group</b></th></tr></thead>";
                    var i = 1;
                    for (var group in objes) {
-                      rows += "<tr><td class='index'><b>" + i + "</b></td><td class='name'>" + objes[group].name + "</td><td class='course'>" + objes[group].course + "</td><td class='timerange'>" + objes[group].startTime + " - " + objes[group].endTime + "</td><td class='location'>" + objes[group].location + "</td><td class='capacity'>" + objes[group].capacity + "</td><td class='event_id'><a href='#' onclick='joinGroup(\"" + objes[group].postid + "\")'>Join Group</td></tr>";
+                      rows += "<tr><td class='index'><b>" + i + "</b></td><td class='name'>" + objes[group].name + "</td><td class='course'>" + objes[group].course + "</td><td class='timerange'>" + objes[group].startTime + " - " + objes[group].endTime + "</td><td class='location'>" + objes[group].location + "</td><td class='capacity'>" + objes[group].capacity + "</td><td class='event_id'><a href='#' onclick='joinGroup(\"" + objes[group].postid + ", " +  objes[group].capacity + "\")'>Join Group</td></tr>";
                       i = i + 1;
                    }
                    rows += "</tbody></table></div>"
