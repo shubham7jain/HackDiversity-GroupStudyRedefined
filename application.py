@@ -96,9 +96,7 @@ def joinGroup():
                       database='student_groups')
         cursor = cnx.cursor()
 
-        createGroup = ("UPDATE `Groups`"
-                        "SET `capacity` = `capacity` - 1"
-                        "WHERE `postid` = %s")
+        createGroup = ("UPDATE `Groups` SET `capacity` = `capacity` - 1 WHERE `postid` = '%s'")
 
         data = (postId)
 
