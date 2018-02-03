@@ -46,24 +46,23 @@
                contentType: 'application/json; charset=UTF-8',
                success: function(data) {
                    //show content
-                   // alert(data);
-                   // objes = JSON.parse(data)
-                   // rows = "<div id='events'><input class='search form-control' placeholder='Search for...'/><table class='table'><thead><tr><th><b>Index</b></th><th><b>Group Id</b></th><th><b>Host Name</b></th><th><b>Course</b></th></tr></thead>";
-                   // var i = 1;
-                   // for (var group in objes) {
-                   //    rows += "<tr><td class='index'><b>" + i + "</b></td><td class='group_id'>" + objes[group].group_id + "</td><td class='latitude'>" + objes[event].lat + "</td><td class='longitude'>" + objes[event].lon + "</td><td class='time'>" + objes[event].time + "</td></tr>";
-                   //    i = i + 1;
-                   // }
-                   // rows += "</tbody></table></div>"
-                  //  document.getElementById('position').innerHTML = rows;
-                  //  $( "#position" ).show( "slow", function() {
+                   objes = JSON.parse(data)
+                   rows = "<div id='groups'><input class='search form-control' placeholder='Search for...'/><table class='table'><thead><tr><th><b>Index</b></th><th><b>Host Name</b></th><th><b>Course</b></th><th><b>Time range</b></th><th><b>Location</b></th><th><b>Capacity</b></th></tr></thead>";
+                   var i = 1;
+                   for (var group in objes) {
+                      rows += "<tr><td class='index'><b>" + i + "</b></td><td class='name'>" + objes[group].name + "</td><td class='course'>" + objes[group].course + "</td><td class='timerange'>" + objes[group].startTime + "-" + objes[group].endTime + "</td><td class='capacity'>" + objes[group].capacity + "</td></tr>";
+                      i = i + 1;
+                   }
+                   rows += "</tbody></table></div>"
+                   document.getElementById('position').innerHTML = rows;
+                   $( "#position" ).show( "slow", function() {
                      
-                  // });
+                  });
                   //  var options = {
                   //     valueNames: [ 'index', 'event_id', 'latitude', 'longitude', 'time' ]
                   //   };
                   //   var userList = new List('events', options);
-                  //  document.getElementById("loading").style.visibility = "hidden";
+                   document.getElementById("loading").style.visibility = "hidden";
                    return true;
                },
                error: function(xhr, textStatus, err) {
@@ -112,58 +111,6 @@
                </a>
                <h3>Manages groups for anyone to join and study in groups.</h3>
             </header>
-            <form onsubmit="return myFunction();" method='POST' action='index.php'>
-               <style>
-                  textarea#styled {
-                  width: 60%;
-                  height: 170px;
-                  padding: -25px;
-                  font-family: Tahoma, sans-serif;
-                  }
-               </style>
-                 <div class="form-group row">
-                 </div>
-                 <div class="form-group row">
-                   <label for="email" class="col-sm-2 col-form-label">Email</label>
-                   <div class="col-sm-10">
-                     <input type="text" class="form-control" id="email">
-                   </div>
-                 </div>
-                 <div class="form-group row">
-                   <label for="uin" class="col-sm-2 col-form-label">UIN</label>
-                   <div class="col-sm-10">
-                     <input type="text" class="form-control" id="uin">
-                   </div>
-                 </div>
-                 <div class="form-group row">
-                   <label for="course" class="col-sm-2 col-form-label">Course Code</label>
-                   <div class="col-sm-10">
-                     <input type="text" class="form-control" id="course">
-                   </div>
-                 </div>
-                 <div class="form-group row">
-                   <label for="startTime" class="col-sm-2 col-form-label">Start Time</label>
-                   <div class="col-sm-10">
-                     <input type="text" class="form-control" id="startTime">
-                   </div>
-                 </div>
-                 <div class="form-group row">
-                   <label for="endTime" class="col-sm-2 col-form-label">End Time</label>
-                   <div class="col-sm-10">
-                     <input type="text" class="form-control" id="endTime">
-                   </div>
-                 </div>
-                 <div class="form-group row">
-                   <label for="endTime" class="col-sm-2 col-form-label">Group Size</label>
-                   <div class="col-sm-10">
-                     <input type="text" class="form-control" id="groupSize">
-                   </div>
-                 </div>
-               <br>
-               <br>
-               <input type='submit' class="button1" id='smm2' name='submit' value='Create Group'>
-         </div>
-         </form>
          <style>
             #position {
             width:60%;
