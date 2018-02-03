@@ -39,24 +39,25 @@
       <script>
         function myFunction() {
             document.getElementById("error").style.visibility = "hidden";
-           var url = document.getElementById('styled').value
-           var ratio = document.getElementById('ratio').value
+           var name = document.getElementById('name').value;
+           var uin = document.getElementById('uin').value;
+           var course = document.getElementById('course').value;
+           var startTime = document.getElementById('startTime').value;
+           var endTime = document.getElementById('endTime').value;
+           var location = document.getElementById('location').value;
+           var capacity = document.getElementById('capacity').value;
            document.getElementById("loading").style.visibility = "visible";
             $.ajax({
                type: "POST",
-               url: "https://precis.herokuapp.com/summaryurl",
-               data: JSON.stringify({'url': url, 'ratio': parseFloat(ratio)}),
+               url: "https://shrouded-fjord-25701.herokuapp.com/createGroup",
+               data: JSON.stringify({'name': name, 'uin': uin, 'courseNumber': course, 'startDate': startTime, 'endDate': endTime, 'location': location, 'capacity': capacity}),
                // dataType: 'json',
                contentType: 'application/json; charset=UTF-8',
                success: function(data) {
                    //show content
                    obje = JSON.parse(data)
-                   document.getElementById('position').innerHTML = '<b>'.concat(obje.summary, '</b>');
+                   document.getElementById('position').innerHTML = '<b>'.concat(obje.message, '</b>');
                    $( "#position" ).show( "slow", function() {
-                     
-                  });
-                   document.getElementById('title').innerHTML = '<b>'.concat(obje.meta.title, '</b>');
-                   $( "#title" ).show( "slow", function() {
                      
                   });
                    document.getElementById("loading").style.visibility = "hidden";
@@ -120,9 +121,9 @@
                  <div class="form-group row">
                  </div>
                  <div class="form-group row">
-                   <label for="email" class="col-sm-2 col-form-label">Email</label>
+                   <label for="name" class="col-sm-2 col-form-label">Name</label>
                    <div class="col-sm-10">
-                     <input type="text" class="form-control" id="email">
+                     <input type="text" class="form-control" id="name">
                    </div>
                  </div>
                  <div class="form-group row">
@@ -147,6 +148,12 @@
                    <label for="endTime" class="col-sm-2 col-form-label">End Time</label>
                    <div class="col-sm-10">
                      <input type="text" class="form-control" id="endTime">
+                   </div>
+                 </div>
+                 <div class="form-group row">
+                   <label for="loction" class="col-sm-2 col-form-label">Location</label>
+                   <div class="col-sm-10">
+                     <input type="text" class="form-control" id="location">
                    </div>
                  </div>
                  <div class="form-group row">
