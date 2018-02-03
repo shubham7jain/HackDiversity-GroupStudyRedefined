@@ -132,7 +132,7 @@
                </style>
                  <div class="input-group input-group-lg">
                   <span class="input-group-addon" id="sizing-addon1">UIN:</span>
-                  <input type="text" name="uin" class="form-control" id="ratio" placeholder="Enter your UIN here" aria-describedby="sizing-addon1">
+                  <input type="text" name="uin" class="form-control" id="uin" placeholder="Enter your UIN here" aria-describedby="sizing-addon1">
                </div>
                <br>
                <br>
