@@ -108,9 +108,9 @@
          <div class="container">
             <header>
                <a href="index.php">
-                  <h2 style="color:black;">Precis</h2>
+                  <h2 style="color:black;">Group Study</h2>
                </a>
-               <h3>Start generating your online summary</h3>
+               <h3>Manages groups for anyone to join and study in groups.</h3>
             </header>
             <style type="text/css">
                .custombutton a{
@@ -172,8 +172,8 @@
             </section>
             <section class="4u">
                <span class="pennant"><span class="fa fa-globe"></span></span>
-               <h3>The Algorithm</h3>
-               <p>A specific algorithm for extracting the most important points of the original document, using extraction based summarization. </p>
+               <h3>Design</h3>
+               <p>It is non-authenticated website so anyone can create the group in which a person could invite others to join in.</p>
                <a href="https://github.com/shubham7jain/precis" class="button button-style1">Read More</a>
             </section>
          </div>
@@ -193,7 +193,7 @@
       <!-- Copyright -->
       <div id="copyright">
          <div class="container">
-            © All Copyrights Reserved by <a href="http://precis.com">precis.com</a>, College Station, 77840, Contact us: <a href="mailto:precis@tamu.edu">precis@tamu.edu</a>
+            © All Copyrights Reserved by <a href="http://groupStudy.com">groupStudy.com</a>, College Station, 77840, Contact us: <a href="mailto:groupStudy@tamu.edu">groupStudy@tamu.edu</a>
          </div>
       </div>
    </body>
