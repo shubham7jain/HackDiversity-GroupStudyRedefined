@@ -119,7 +119,7 @@
             </style>
 
             <a href="create_group.php" class="button1" role="button">Create Group</a>
-            <a href="tex.php" class="button1" role="button">Find Groups</a>
+            <a href="find_groups.php" class="button1" role="button">Find Groups</a>
 
          <style>
             #position {
