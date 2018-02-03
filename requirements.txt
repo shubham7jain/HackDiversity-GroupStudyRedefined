@@ -6,3 +6,4 @@ requests==2.18.4
 SQLAlchemy==1.1.13
 uuid==1.30
 Flask-Cors==2.1.2
+pytz==2017.3
