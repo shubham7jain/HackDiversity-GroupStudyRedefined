@@ -3,10 +3,10 @@
 <html>
    <head>
       <link rel="shortcut icon" href="precis.png">
-      <title>Precis - Free automatic text summarization tool</title>
+      <title>Course Groups - Place to get together for studies</title>
       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
       <meta name="keywords" content="online symmary, text summarization tool, automatic text summary, text mining, text summarizer, text summary, auto summarizer, automatic text summarizer, free summarizer, summarize text, summary generator, text summary, online text summarization, summarizer, summary, summarize, article summarizer, ariticle summarization">
-      <meta name="description" content="Online Automatic Text Summarization - Precis is a simple tool that help to summarize large text documents and split from the most important sentences.">
+      <meta name="description" content="Library Course Group Study - It is a simple tool to create groups and join groups for knowledge sharing.">
       <link rel="stylesheet" href="//yui.yahooapis.com/pure/0.5.0/pure-min.css">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700,500,900' rel='stylesheet' type='text/css'>
@@ -118,30 +118,8 @@
                }
             </style>
 
-            <a href="url.php" class="button1" role="button">Summary by Url</a>
-            <a href="tex.php" class="button1" role="button">Summary by Text</a>
-<!--             <form onsubmit="return myFunction();" method='POST' action='index.php'>
-               <style>
-                  textarea#styled {
-                  width: 60%;
-                  height: 170px;
-                  padding: -25px;
-                  font-family: Tahoma, sans-serif;
-                  }
-               </style>
-               <textarea  name="text" placeholder="Paste your text article and click Summarize.. " id="styled"></textarea>
-               <script>
-                  function clear_textarea() {
-                     document.getElementById("styled").value = "";
-                  }
-                  
-               </script>
-               <br>
-               <br>
-               <input type="button" id="smm" value="Clear" class="button1" onclick="javascript:clear_textarea();">
-               <input type='submit' class="button1" id='smm2' name='submit' value='Summarize'>
-         </div> -->
-         <!-- </form> -->
+            <a href="url.php" class="button1" role="button">Create Group</a>
+            <a href="tex.php" class="button1" role="button">Find Groups</a>
 
          <style>
             #position {
@@ -182,14 +160,14 @@
          <div class="row">
             <section class="4u">
                <span class="pennant"><span class="fa fa-globe"></span></span>
-               <h3>Precis</h3>
-               <p>Summarize your articles, splitting the most important sentences and ranking a sentence based on importance.</p>
-               <a href="https://github.com/shubham7jain/precis" class="button button-style1">Read More</a>
+               <h3>About</h3>
+               <p>Group Study helps in much faster understanding and removes blockers of everyone.</p>
+               <a href="https://github.com/shubham7jain/HackDiversity-GroupStudyRedefined" class="button button-style1">Read More</a>
             </section>
             <section class="4u">
                <span class="pennant"><span class="fa fa-lock"></span></span>
-               <h3>API</h3>
-               <p>This tool is accessible by an API, integrate our api to generate summaries for a given text on your website or application.</p>
+               <h3>Built</h3>
+               <p>This is a application built by some hackers in Tamu Diversity Hackathon 2018.</p>
                <a href="" target="_blank" class="button button-style1">Read More</a>
             </section>
             <section class="4u">
