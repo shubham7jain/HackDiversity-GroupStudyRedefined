@@ -6,6 +6,7 @@ import uuid
 import os
 import time
 import datetime
+import pytz
 
 application = Flask(__name__)
 CORS(application)
@@ -55,7 +56,8 @@ def getAllPosts():
 
     cursor.execute(query)
 
-    current = datetime.datetime.now()
+    tz = pytz.timezone('US/Central')
+    current = datetime.datetime.now(tz)
     result = []
     for (course, name, uin, startTime, endTime, location, capacity) in cursor:
         end =  datetime.datetime.strptime(str(endTime), '%Y-%m-%d %H:%M:%S');
