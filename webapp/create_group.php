@@ -107,7 +107,7 @@
                <a href="index.php">
                   <h2 style="color:black;">Group Study</h2>
                </a>
-               <h3>Manages groups for anyone to join and study in groups.</h3>
+               <h3>Create Group Form : Fill details to create the group and others with similar interest would join.</h3>
             </header>
             <form onsubmit="return myFunction();">
                <style>
