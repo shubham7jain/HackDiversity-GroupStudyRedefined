@@ -53,7 +53,7 @@ def getAllPosts():
                       database='student_groups')
     cursor = cnx.cursor()
 
-    query = ("SELECT `course`, `name`, `uin`, `startTime`, `endTime`, `location`, `capacity`, `contact` from `Groups` where `capacity` > 0")
+    query = ("SELECT `postid`, `course`, `name`, `uin`, `startTime`, `endTime`, `location`, `capacity`, `contact` from `Groups` where `capacity` > 0")
 
     cursor.execute(query)
 
