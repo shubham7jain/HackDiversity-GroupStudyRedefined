@@ -48,7 +48,7 @@ def getAllPosts():
                       database='student_groups')
     cursor = cnx.cursor()
 
-    query = ("SELECT `course`, `name`, `uin`, `startTime`, `endTime`, `location` from `Groups`")
+    query = ("SELECT `course`, `name`, `uin`, `startTime`, `endTime`, `location`, `capacity` from `Groups`")
 
     cursor.execute(query)
 
@@ -60,7 +60,8 @@ def getAllPosts():
     		"uin": uin,
     		"startTime": str(startTime),
     		"endTime": str(endTime),
-    		"location": location
+    		"location": location,
+            "capacity": capacity
     		})
 
     cursor.close()
