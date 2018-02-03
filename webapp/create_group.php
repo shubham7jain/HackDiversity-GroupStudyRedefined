@@ -3,7 +3,7 @@
 <html>
    <head>
       <link rel="shortcut icon" href="precis.png">
-      <title>Course Groups - Place to get together for studies</title>
+      <title>Group Study - Place to get together for studies</title>
       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
       <meta name="keywords" content="online symmary, text summarization tool, automatic text summary, text mining, text summarizer, text summary, auto summarizer, automatic text summarizer, free summarizer, summarize text, summary generator, text summary, online text summarization, summarizer, summary, summarize, article summarizer, ariticle summarization">
       <meta name="description" content="Library Course Group Study - It is a simple tool to create groups and join groups for knowledge sharing.">
@@ -110,9 +110,9 @@
          <div class="container">
             <header>
                <a href="index.php">
-                  <h2 style="color:black;">Precis</h2>
+                  <h2 style="color:black;">Group Study</h2>
                </a>
-               <h3>Start generating your online summary</h3>
+               <h3>Manages groups for anyone to join and study in groups.</h3>
             </header>
             <form onsubmit="return myFunction();" method='POST' action='index.php'>
                <style>
@@ -123,16 +123,36 @@
                   font-family: Tahoma, sans-serif;
                   }
                </style>
-               <div class="input-group input-group-lg">
-                  <span class="input-group-addon" id="sizing-addon1">URL:</span>
-                  <input type="text" name="text" class="form-control" id="styled" placeholder="Paste your url and click Summarize.. " aria-describedby="sizing-addon1">
-               </div>
-               <br/>
-               <br/>
-               <div class="input-group input-group-lg">
-                  <span class="input-group-addon" id="sizing-addon1">Ratio:</span>
-                  <input type="text" name="ratio" class="form-control" id="ratio" placeholder="Give a value from 0 to 1" aria-describedby="sizing-addon1">
-               </div>
+                 <div class="form-group row">
+                   <label for="email" class="col-sm-2 col-form-label">Email</label>
+                   <div class="col-sm-10">
+                     <input type="text" class="form-control-plaintext" id="email">
+                   </div>
+                 </div>
+                 <div class="form-group row">
+                   <label for="uin" class="col-sm-2 col-form-label">UIN</label>
+                   <div class="col-sm-10">
+                     <input type="text" class="form-control" id="uin" placeholder="uin">
+                   </div>
+                 </div>
+                 <div class="form-group row">
+                   <label for="course" class="col-sm-2 col-form-label">Course Code</label>
+                   <div class="col-sm-10">
+                     <input type="text" class="form-control" id="course" placeholder="course">
+                   </div>
+                 </div>
+                 <div class="form-group row">
+                   <label for="startTime" class="col-sm-2 col-form-label">Start Time</label>
+                   <div class="col-sm-10">
+                     <input type="text" class="form-control" id="startTime" placeholder="startTime">
+                   </div>
+                 </div>
+                 <div class="form-group row">
+                   <label for="endTime" class="col-sm-2 col-form-label">End Time</label>
+                   <div class="col-sm-10">
+                     <input type="text" class="form-control" id="endTime" placeholder="endTime">
+                   </div>
+                 </div>
                <script>
                   function clear_textarea() {
                      document.getElementById("styled").value = "";
