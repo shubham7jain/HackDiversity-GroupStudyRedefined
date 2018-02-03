@@ -14,6 +14,7 @@
       <script src="js/skel.min.js"></script>
       <script src="js/skel-panels.min.js"></script>
       <script src="js/init.js"></script>
+      <script src="js/list.js"></script>
       <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -50,7 +51,7 @@
                    rows = "<div id='groups'><input class='search form-control' placeholder='Search for...'/><table class='table'><thead><tr><th><b>Index</b></th><th><b>Host Name</b></th><th><b>Course</b></th><th><b>Time range</b></th><th><b>Location</b></th><th><b>Capacity</b></th></tr></thead>";
                    var i = 1;
                    for (var group in objes) {
-                      rows += "<tr><td class='index'><b>" + i + "</b></td><td class='name'>" + objes[group].name + "</td><td class='course'>" + objes[group].course + "</td><td class='timerange'>" + objes[group].startTime + "-" + objes[group].endTime + "</td><td class='capacity'>" + objes[group].capacity + "</td></tr>";
+                      rows += "<tr><td class='index'><b>" + i + "</b></td><td class='name'>" + objes[group].name + "</td><td class='course'>" + objes[group].course + "</td><td class='timerange'>" + objes[group].startTime + " - " + objes[group].endTime + "</td><td class='location'>" + objes[group].location + "</td><td class='capacity'>" + objes[group].capacity + "</td></tr>";
                       i = i + 1;
                    }
                    rows += "</tbody></table></div>"
