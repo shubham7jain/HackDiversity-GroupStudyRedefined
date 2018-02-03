@@ -52,7 +52,7 @@ def getAllPosts():
                       database='student_groups')
     cursor = cnx.cursor()
 
-    query = ("SELECT `course`, `name`, `uin`, `startTime`, `endTime`, `location`, `capacity` from `Groups`")
+    query = ("SELECT `postid`, `course`, `name`, `uin`, `startTime`, `endTime`, `location`, `capacity` from `Groups`")
 
     cursor.execute(query)
 
@@ -66,6 +66,7 @@ def getAllPosts():
         print(current)
         if(end > current):
         	result.append({
+                "postid": postid,
         		"course": course,
         		"name": name,
         		"uin": uin,
