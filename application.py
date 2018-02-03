@@ -53,7 +53,7 @@ def getAllPosts():
     cursor.execute(query)
 
     result = []
-    for (course, name, uin, startTime, endTime, location) in cursor:
+    for (course, name, uin, startTime, endTime, location, capacity) in cursor:
     	result.append({
     		"course": course,
     		"name": name,
