@@ -1,10 +1,12 @@
 from flask import Flask, request
+from flask_cors import CORS, cross_origin
 import json
 import mysql.connector
 import uuid
 import os
 
 application = Flask(__name__)
+CORS(application)
 
 @application.route('/createGroup', methods=['POST'])
 def createGroup():
