@@ -3,7 +3,7 @@
 <html>
    <head>
       <link rel="shortcut icon" href="precis.png">
-      <title>Course Groups - Place to get together for studies</title>
+      <title>Group Study - Place to get together for studies</title>
       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
       <meta name="keywords" content="online symmary, text summarization tool, automatic text summary, text mining, text summarizer, text summary, auto summarizer, automatic text summarizer, free summarizer, summarize text, summary generator, text summary, online text summarization, summarizer, summary, summarize, article summarizer, ariticle summarization">
       <meta name="description" content="Library Course Group Study - It is a simple tool to create groups and join groups for knowledge sharing.">
@@ -118,7 +118,7 @@
                }
             </style>
 
-            <a href="url.php" class="button1" role="button">Create Group</a>
+            <a href="create_group.php" class="button1" role="button">Create Group</a>
             <a href="tex.php" class="button1" role="button">Find Groups</a>
 
          <style>
