@@ -114,13 +114,9 @@
                   font-family: Tahoma, sans-serif;
                   }
                </style>
-                 <div class="form-group">
-                   <textarea  class="form-control custom-control" name="uin" placeholder="Enter your UIN here ...." id="styled" style="width:100%"></textarea>
-                   <script>
-                      function clear_textarea() {
-                         document.getElementById("styled").value = "";
-                      }
-                   </script>
+                 <div class="input-group input-group-lg">
+                  <span class="input-group-addon" id="sizing-addon1">UIN:</span>
+                  <input type="text" name="uin" class="form-control" id="ratio" placeholder="Enter your UIN here" aria-describedby="sizing-addon1">
                </div>
                <br>
                <br>
