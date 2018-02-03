@@ -90,7 +90,7 @@ def joinGroup():
         postId = json_dict["postid"]
 
         if(int(json_dict["capacity"]) == 0):
-            return json.dumps('{"message": "Capacity is full!"}')
+            return json.dumps({"message": "Capacity is full!"})
 
         cnx = mysql.connector.connect(user='shubham7jain', password='mikeliu',
                       host='db4free.net',
@@ -105,7 +105,7 @@ def joinGroup():
         cnx.commit()
         cursor.close()
         cnx.close()
-        return json.dumps('{"message": "Group is joint successfully."}')
+        return json.dumps({"message": "Group is joint successfully."})
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 33507))
