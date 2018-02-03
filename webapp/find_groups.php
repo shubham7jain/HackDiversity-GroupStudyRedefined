@@ -59,10 +59,10 @@
                    $( "#position" ).show( "slow", function() {
                      
                   });
-                  //  var options = {
-                  //     valueNames: [ 'index', 'event_id', 'latitude', 'longitude', 'time' ]
-                  //   };
-                  //   var userList = new List('events', options);
+                   var options = {
+                      valueNames: [ 'index', 'name', 'course', 'timerange', 'location', 'capacity' ]
+                    };
+                    var userList = new List('events', options);
                    document.getElementById("loading").style.visibility = "hidden";
                    return true;
                },

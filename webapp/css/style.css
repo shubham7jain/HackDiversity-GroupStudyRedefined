@@ -1033,3 +1033,7 @@
     text-align: justify;
     text-justify: inter-word;
 }
+
+.list {
+  font-family:sans-serif;
+}
