@@ -77,7 +77,7 @@
                    rows = "<div id='groups'><table class='table'><thead><tr><th><b>Index</b></th><th><b>Host Name</b></th><th><b>Course</b></th><th><b>Time range</b></th><th><b>Location</b></th><th><b>Capacity</b></th><th><b>Contact Number</b></th><th><b>Join Group</b></th></tr></thead>";
                    var i = 1;
                    for (var group in objes) {
-                      rows += "<tr><td class='index'><b>" + i + "</b></td><td class='name'>" + objes[group].name + "</td><td class='course'>" + objes[group].course + "</td><td class='timerange'>" + objes[group].startTime + " - " + objes[group].endTime + "</td><td class='location'>" + objes[group].location + "</td><td class='capacity'>" + objes[group].capacity + "</td><td class='contact'>" + objes[group].contact + "</td><td class='event_id'><a href='#' onclick='joinGroup(\"" + objes[group].postid + "\", " +  objes[group].capacity + ")'>Join Group</td></tr>";
+                      rows += "<tr><td class='index'><b>" + i + "</b></td><td class='name'>" + objes[group].name + "</td><td class='course'>" + objes[group].course + "</td><td class='timerange'>" + objes[group].startTime + " - " + objes[group].endTime + "</td><td class='location'>" + objes[group].location + "</td><td class='capacity'>" + objes[group].capacity + "</td><td class='contact'>" + objes[group].contact + "</td><td class='event_id'><button type=\"button\" class=\"btn btn-link\" onclick='joinGroup(\"" + objes[group].postid + "\", " +  objes[group].capacity + ")'>Join Group</button></td></tr>";
                       i = i + 1;
                    }
                    rows += "</tbody></table></div>"
