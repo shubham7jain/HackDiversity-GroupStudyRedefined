@@ -48,11 +48,12 @@
            var endTime = document.getElementById('endTime').value;
            var location = document.getElementById('location').value;
            var capacity = document.getElementById('groupSize').value;
+           var contact = document.getElementById('contact').value;
            document.getElementById("loading").style.visibility = "visible";
             $.ajax({
                type: "POST",
                url: "https://shrouded-fjord-25701.herokuapp.com/createGroup",
-               data: JSON.stringify({'name': name, 'uin': uin, 'courseNumber': course, 'startDate': startTime, 'endDate': endTime, 'location': location, 'capacity': capacity}),
+               data: JSON.stringify({'name': name, 'uin': uin, 'courseNumber': course, 'startDate': startTime, 'endDate': endTime, 'location': location, 'capacity': capacity, 'contact': contact}),
                // dataType: 'json',
                contentType: 'application/json; charset=UTF-8',
                success: function(data) {
@@ -169,9 +170,15 @@
                    </div>
                  </div>
                  <div class="form-group row">
-                   <label for="endTime" class="col-sm-2 col-form-label">Group Size</label>
+                   <label for="groupSize" class="col-sm-2 col-form-label">Group Size</label>
                    <div class="col-sm-10">
                      <input type="text" class="form-control" id="groupSize">
+                   </div>
+                 </div>
+                 <div class="form-group row">
+                   <label for="contact" class="col-sm-2 col-form-label">Contact Number</label>
+                   <div class="col-sm-10">
+                     <input type="text" class="form-control" id="contact">
                    </div>
                  </div>
                <br>
