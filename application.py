@@ -2,8 +2,6 @@ from flask import Flask, request
 import json
 import mysql.connector
 import uuid
-from bson import json_util
-import datetime
 
 application = Flask(__name__)
 
