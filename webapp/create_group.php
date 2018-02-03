@@ -144,7 +144,7 @@
                       <input type='text' class="form-control" id='startTime' />
                       <script type="text/javascript">
                           $(function () {
-                              $('#startTime').datetimepicker();
+                              $('#startTime').datepicker();
                           });
                       </script>
                    </div>
@@ -155,7 +155,7 @@
                       <input type='text' class="form-control" id='endTime' />
                       <script type="text/javascript">
                           $(function () {
-                              $('#endTime').datetimepicker();
+                              $('#endTime').datepicker();
                           });
                       </script>
                    </div>
