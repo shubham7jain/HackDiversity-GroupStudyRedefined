@@ -42,6 +42,8 @@
         function updateGroup(postid) {
           alert(postid);
           alert(document.getElementById('startTime').value);
+
+          return true;
         }
 
         function myFunction() {
