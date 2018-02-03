@@ -59,7 +59,7 @@ def getAllPosts():
     tz = pytz.timezone('US/Central')
     current = datetime.datetime.now(tz)
     result = []
-    for (course, name, uin, startTime, endTime, location, capacity) in cursor:
+    for (postid, course, name, uin, startTime, endTime, location, capacity) in cursor:
         end =  datetime.datetime.strptime(str(endTime), '%Y-%m-%d %H:%M:%S');
         print(end, current)
         current = current.replace(tzinfo=None)
