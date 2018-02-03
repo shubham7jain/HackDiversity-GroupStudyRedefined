@@ -22,11 +22,6 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-      <noscript>
-         <link rel="stylesheet" href="css/skel-noscript.css" />
-         <link rel="stylesheet" href="css/style.css" />
-         <link rel="stylesheet" href="css/style-desktop.css" />
-      </noscript>
       <script>
          (
          function(i,s,o,g,r,a,m)
