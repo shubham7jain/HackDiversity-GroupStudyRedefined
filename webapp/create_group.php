@@ -109,7 +109,7 @@
                </a>
                <h3>Manages groups for anyone to join and study in groups.</h3>
             </header>
-            <form onsubmit="return myFunction();" method='POST' action='index.php'>
+            <form onsubmit="return myFunction();">
                <style>
                   textarea#styled {
                   width: 60%;
