@@ -98,11 +98,9 @@ def joinGroup():
                       database='student_groups')
         cursor = cnx.cursor()
 
-        createGroup = ("UPDATE `Groups` SET `capacity` = `capacity` - 1 WHERE `postid` = '%s'")
+        createGroup = ("""UPDATE `Groups` SET `capacity` = (`capacity` - 1) WHERE `postid` = %(postid)s""")
 
-        data = (postId)
-
-        cursor.execute(createGroup, data)
+        cursor.execute(createGroup, {'postid':postId})
 
         cnx.commit()
         cursor.close()
