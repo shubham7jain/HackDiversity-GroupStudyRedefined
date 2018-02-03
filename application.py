@@ -51,7 +51,7 @@ def getAllPosts():
                       database='student_groups')
     cursor = cnx.cursor()
 
-    query = ("SELECT `course`, `name`, `uin`, `startTime`, `endTime`, `location`, `capacity` from `Groups`")
+    query = ("SELECT `course`, `name`, `uin`, `startTime`, `endTime`, `location`, `capacity` from `Groups` where `endTime` > CURTIME()")
 
     cursor.execute(query)
 
