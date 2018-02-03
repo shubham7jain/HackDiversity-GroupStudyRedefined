@@ -79,6 +79,36 @@ def getAllPosts():
     cnx.close()
     return json.dumps(result)
 
+@application.route('/joinGroup', methods=['POST'])
+def joinGroup():
+    if request.method == "POST":
+
+    	json_dict = json.loads(request.data)
+        postId = json_dict["postid"]
+
+
+        if(json_dict["capacity"] == 0)
+            return json.dumps('{"message": "Capacity is full!"}')
+
+    	cnx = mysql.connector.connect(user='shubham7jain', password='mikeliu',
+                      host='db4free.net',
+                      port=3307,
+                      database='student_groups')
+    	cursor = cnx.cursor()
+
+    	createGroup = ("UPDATE `Groups`"
+                        "SET `capacity` = `capacity` - 1"
+                        "WHERE `postid` = %s")
+
+    	data = (postId)
+
+    	cursor.execute(createGroup, data)
+
+    	cnx.commit()
+    	cursor.close()
+    	cnx.close()
+    	return json.dumps('{"message": "Group is joint successfully."}')
+
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 33507))
     application.run(host='0.0.0.0', debug=True, port=port)

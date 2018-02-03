@@ -1,25 +1,25 @@
 (function () {
     'use strict';
-    
+
     angular
         .module('zigforumApp')
         .service('posts', posts);
-    
+
     posts.$inject = ['$http', 'API_URL'];
-    
+
     function posts($http, API_URL) {
         var sv = this;
-        var endpoint = API_URL + '/posts';
-        
+        var endpoint = API_URL + '/getGroups';
+
         /**
          * Retrieves a post by its id
          */
         sv.getById = function (onSuccess, onFail, id) {
             var config = {
                 method: 'GET',
-                url: endpoint + '/' + id
+                url: endpoint// + '/' + id
             };
-            
+
             $http(config)
                 .then(function (response) {
                     onSuccess(response.data);
@@ -27,7 +27,7 @@
                     onFail(response.statusText);
                 });
         };
-        
+
         /**
          * Retrieves posts by a forum id
          */
@@ -36,7 +36,7 @@
                 method: 'GET',
                 url: endpoint + '/forumid/' + id
             };
-            
+
             $http(config)
                 .then(function (response) {
                     onSuccess(response.data);
@@ -44,7 +44,7 @@
                     onFail(response.statusText);
                 });
         }
-        
+
         /**
          * Creates a new post
          */
@@ -54,7 +54,7 @@
                 url: endpoint + '/create',
                 data: newPost
             };
-            
+
             $http(config)
                 .then(function (response) {
                     onSuccess(response.data);
@@ -62,7 +62,7 @@
                     onFail(response.statusText);
                 });
         };
-        
+
         /**
          * Edits an existing post
          */
@@ -72,7 +72,7 @@
                 url: endpoint + '/' + id + '/edit',
                 data: editedPost
             };
-            
+
             $http(config)
                 .then(function (response) {
                     onSuccess(response.data);
@@ -80,16 +80,16 @@
                     onFail(response.statusText);
                 });
         };
-        
+
         /**
          * Deletes an existing post
          */
         sv.delete = function (onSuccess, onFail, id) {
             var config = {
                 method: 'DELETE',
-                url: endpoint + '/' + id + '/delete' 
+                url: endpoint + '/' + id + '/delete'
             };
-            
+
             $http(config)
                 .then(function (response) {
                     onSuccess(response.data);

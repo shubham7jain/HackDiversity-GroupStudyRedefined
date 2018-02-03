@@ -39,17 +39,17 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a ng-href="#/">Home Page</a></li>
-                    <li><a ng-href="#/forums">Forums</a></li>
-                    <li><a ng-href="#/about">About</a></li>
+                    <li><a ng-href="#/!">Home Page</a></li>
+                    <li><a ng-href="#!forums">Forums</a></li>
+                    <li><a ng-href="#!about">About</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right" ng-show="vm.isAuthenticated">
                     <li><a>{{vm.username}}</a></li>
                     <li><a ng-click="vm.signOut()">Sign Out</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right" ng-hide="vm.isAuthenticated">
-                    <li><a ng-href="#/signup">Sign Up</a></li>
-                    <li><a ng-href="#/signin">Sign In</a></li>
+                    <li><a ng-href="#!signup">Sign Up</a></li>
+                    <li><a ng-href="#!signin">Sign In</a></li>
                 </ul>
             </div>
         </div>
@@ -79,7 +79,7 @@
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
-    
+
     <script src="scripts/app.js"></script>
     <script src="scripts/app.config.js"></script>
     <script src="scripts/app.constants.js"></script>
