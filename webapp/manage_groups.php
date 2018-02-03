@@ -39,23 +39,39 @@
          
       </script>
       <script>
+        function updateGroup(postid) {
+          var course = document.getElementById("course");
+          var timerange = document.getElementById("time")
+        }
+
         function myFunction() {
             document.getElementById("error").style.visibility = "hidden";
            var uin = document.getElementById('uin').value;
            document.getElementById("loading").style.visibility = "visible";
             $.ajax({
                type: "POST",
-               url: "https://shrouded-fjord-25701.herokuapp.com/createGroup",
-               data: JSON.stringify({'name': name, 'uin': uin, 'courseNumber': course, 'startDate': startTime, 'endDate': endTime, 'location': location, 'capacity': capacity, 'contact': contact}),
+               url: "https://shrouded-fjord-25701.herokuapp.com/getGroupByUin",
+               data: JSON.stringify({'uin': uin}),
                // dataType: 'json',
                contentType: 'application/json; charset=UTF-8',
                success: function(data) {
                    //show content
-                   obje = JSON.parse(data)
-                   document.getElementById('position').innerHTML = '<b><center>'.concat(obje.message, '</center></b>');
+                   objes = JSON.parse(data)
+                   rows = "<div id='groups'><table class='table'><thead><tr><th><b>Index</b></th><th><b>Host Name</b></th><th><b>Course</b></th><th><b>Time range</b></th><th><b>Location</b></th><th><b>Capacity</b></th><th><b>Contact Number</b></th><th><b>Join Group</b></th></tr></thead>";
+                   var i = 1;
+                   for (var group in objes) {
+                      rows += "<tr><td class='index'><b>" + i + "</b></td><td class='name'>" + objes[group].name + "</td><td><input type='text' class='course'>" + objes[group].course + "</input></td><td><input type='text' class='startTime'>" + objes[group].startTime + "</input></td><td><input type='text' class='endTime'>" + objes[group].endTime + "</input><td><input type='text' class='location'>" + objes[group].location + "</input></td><td><input type='text' class='capacity'>" + objes[group].capacity + "</input></td><td><input type='text' class='contact'>" + objes[group].contact + "</input></td><td class='event_id'><button type=\"button\" class=\"button1\" onclick='return updateGroup(" + objes[group].postid + ");'>Update Group</button></td></tr>";
+                      i = i + 1;
+                   }
+                   rows += "</tbody></table></div>"
+                   document.getElementById('position').innerHTML = rows;
                    $( "#position" ).show( "slow", function() {
                      
                   });
+                   var options = {
+                      valueNames: [ 'index', 'name', 'course', 'timerange', 'location', 'capacity' ]
+                    };
+                    var userList = new List('events', options);
                    document.getElementById("loading").style.visibility = "hidden";
                    return true;
                },
@@ -120,7 +136,7 @@
                </div>
                <br>
                <br>
-               <input type='submit' class="button1" id='smm2' name='submit' value='Manage Group'>
+               <input type='submit' class="button1" id='smm2' name='submit' value='Get Details'>
          </div>
          </form>
          <style>
