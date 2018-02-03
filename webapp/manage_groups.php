@@ -45,6 +45,7 @@
         }
 
         function myFunction() {
+          alert()
             document.getElementById("error").style.visibility = "hidden";
            var uin = document.getElementById('uin').value;
            document.getElementById("loading").style.visibility = "visible";
@@ -60,7 +61,7 @@
                    rows = "<div id='groups'><table class='table'><thead><tr><th><b>Index</b></th><th><b>Host Name</b></th><th><b>Course</b></th><th><b>Time range</b></th><th><b>Location</b></th><th><b>Capacity</b></th><th><b>Contact Number</b></th><th><b>Join Group</b></th></tr></thead>";
                    var i = 1;
                    for (var group in objes) {
-                      rows += "<tr><td class='index'><b>" + i + "</b></td><td class='name'>" + objes[group].name + "</td><td><input type='text' class='course'>" + objes[group].course + "</input></td><td><input type='text' class='startTime'>" + objes[group].startTime + "</input></td><td><input type='text' class='endTime'>" + objes[group].endTime + "</input><td><input type='text' class='location'>" + objes[group].location + "</input></td><td><input type='text' class='capacity'>" + objes[group].capacity + "</input></td><td><input type='text' class='contact'>" + objes[group].contact + "</input></td><td class='event_id'><button type=\"button\" class=\"button1\" onclick='return updateGroup(" + objes[group].postid + ");'>Update Group</button></td></tr>";
+                      rows += "<tr><td class='index'><b>" + i + "</b></td><td class='name'>" + objes[group].name + "</td><td><input type='text' class='course' value='>" + objes[group].course + "'/></td><td><input type='text' class='startTime' value=" + objes[group].startTime + "/></td><td><input type='text' class='endTime' value='>" + objes[group].endTime + "'/><td><input type='text' class='location'>" + objes[group].location + "</input></td><td><input type='text' class='capacity'>" + objes[group].capacity + "</input></td><td><input type='text' class='contact'>" + objes[group].contact + "</input></td><td class='event_id'><button type=\"button\" class=\"button1\" onclick='return updateGroup(" + objes[group].postid + ");'>Update Group</button></td></tr>";
                       i = i + 1;
                    }
                    rows += "</tbody></table></div>"
