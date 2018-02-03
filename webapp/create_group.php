@@ -139,8 +139,8 @@
                    <label for="course" class="col-sm-2 col-form-label">Course Code</label>
                    <div class="col-sm-10">
                      <input type="text" class="form-control" id="course"  aria-describedby="courseHelp">
+                     <small id="courseHelp" class="form-text text-muted">Use following format XXXX-YYY. Eg. CSCE-689</small>
                    </div>
-                   <small id="courseHelp" class="form-text text-muted">Use following format XXXX-YYY. Eg. CSCE-689</small>
                  </div>
                  <div class="form-group row">
                    <label for="startTime" class="col-sm-2 col-form-label">Start Time</label>
