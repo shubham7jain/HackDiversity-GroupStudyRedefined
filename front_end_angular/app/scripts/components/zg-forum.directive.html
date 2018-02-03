@@ -1,0 +1,61 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a ng-href="#/forum/{{forum.id}}">{{forum.name}}</a>
+    </div>
+    <div class="panel-body">
+        <table class="table" ng-show="forum.subforums">
+            <thead>
+                <tr>
+                    <th>Subforums</th>
+                    <th class="col-sm-1">Statistics</th>
+                    <th class="col-sm-2">Last Post</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="subforum in forum.subforums">
+                    <td>
+                        <div class="media">
+                            <div class="media-left">
+                                <span class="glyphicon glyphicon-folder-close"></span>
+                            </div>
+                            <div class="media-body">
+                                <a ng-href="#/forum/{{subforum.id}}">{{subforum.name}}</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table" ng-show="posts">
+            <thead>
+                <tr>
+                    <th class="col-sm-10">Posts</th>
+                    <th class="col-sm-1">Statistics</th>
+                    <th class="col-sm-2">Last Comment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="post in posts">
+                    <td>
+                        <div class="media">
+                            <div class="media-left">
+                                <span class="glyphicon glyphicon-file"></span>
+                            </div>
+                            <div class="media-body"><a ng-href="#/posts/{{post.id}}">{{post.title}}</a></div>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="font-size: 10px;">999 Comments</div>
+                        <div style="font-size: 10px;">9999 Views</div>
+                    </td>
+                    <td>
+                        <div style="font-size: 10px;"><span class="glyphicon glyphicon-user"></span> by <a ng-href="">{{post.user.user_name}}</a></div>
+                        <div style="font-size: 10px;"><span class="glyphicon glyphicon-time"></span> Sun Dec 06, 2015 12:18 am</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
