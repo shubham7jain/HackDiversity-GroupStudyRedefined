@@ -4,6 +4,8 @@ import json
 import mysql.connector
 import uuid
 import os
+import time
+import datetime
 
 application = Flask(__name__)
 CORS(application)
@@ -13,11 +15,12 @@ def createGroup():
     if request.method == "POST":
 
     	json_dict = json.loads(request.data)
+
     	uin = json_dict["uin"]
     	name = json_dict["name"]
     	courseNumber = json_dict["courseNumber"]
-    	startDate = json_dict["startDate"]
-    	endDate = json_dict["endDate"]
+    	startDate = datetime.date.strftime(datetime.datetime.strptime(json_dict["startDate"], '%m/%d/%Y %I:%M %p'), '%Y-%m-%d %H:%M')
+    	endDate = datetime.date.strftime(datetime.datetime.strptime(json_dict["endDate"], '%m/%d/%Y %I:%M %p'), '%Y-%m-%d %H:%M')
     	location = json_dict["location"]
     	capacity = json_dict["capacity"]
 
