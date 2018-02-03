@@ -1,4 +1,3 @@
-<?php include_once("home.html"); ?>
 <!DOCTYPE HTML>
 <html>
    <head>
@@ -12,6 +11,8 @@
       <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700,500,900' rel='stylesheet' type='text/css'>
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
       <script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
       <script src="js/skel.min.js"></script>
       <script src="js/skel-panels.min.js"></script>
       <script src="js/init.js"></script>
@@ -23,11 +24,6 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-      <noscript>
-         <link rel="stylesheet" href="css/skel-noscript.css" />
-         <link rel="stylesheet" href="css/style.css" />
-         <link rel="stylesheet" href="css/style-desktop.css" />
-      </noscript>
       <script>
          (
          function(i,s,o,g,r,a,m)
@@ -43,22 +39,20 @@
          
       </script>
       <script>
-         function init() {
-            $("#loading").hide();
-         }
         function myFunction() {
-           var text = document.getElementById('styled').value
+            document.getElementById("error").style.visibility = "hidden";
+           var uin = document.getElementById('uin').value;
            document.getElementById("loading").style.visibility = "visible";
             $.ajax({
                type: "POST",
-               url: "https://precis.herokuapp.com/summary",
-               data: JSON.stringify({'text': text}),
+               url: "https://shrouded-fjord-25701.herokuapp.com/createGroup",
+               data: JSON.stringify({'name': name, 'uin': uin, 'courseNumber': course, 'startDate': startTime, 'endDate': endTime, 'location': location, 'capacity': capacity, 'contact': contact}),
                // dataType: 'json',
                contentType: 'application/json; charset=UTF-8',
                success: function(data) {
                    //show content
                    obje = JSON.parse(data)
-                   document.getElementById('position').innerHTML = '<b>'.concat(obje.summary, '</b>');
+                   document.getElementById('position').innerHTML = '<b><center>'.concat(obje.message, '</center></b>');
                    $( "#position" ).show( "slow", function() {
                      
                   });
@@ -66,9 +60,8 @@
                    return true;
                },
                error: function(xhr, textStatus, err) {
-                  alert(xhr.responseText);
-                   alert('text status '+textStatus+', err '+err);
                    document.getElementById("loading").style.visibility = "hidden";
+                   document.getElementById("error").style.visibility = "visible";
                    return true;
                }
             });
@@ -110,18 +103,30 @@
                <a href="index.php">
                   <h2 style="color:black;">Group Study</h2>
                </a>
-               <h3>Manages groups for anyone to join and study in groups.</h3>
+               <h3>Manage Groups : Please enter your UIN to proceed</h3>
             </header>
-            <style type="text/css">
-               .custombutton a{
-                  color:black;
-               }
-            </style>
-
-            <a href="create_group.php" class="button1" role="button">Create Group</a>
-            <a href="find_groups.php" class="button1" role="button">Find Groups</a>
-            <a href="manage_groups.php" class="button1" role="button">Manage Groups</a>
-
+            <form onsubmit="return myFunction();">
+               <style>
+                  textarea#styled {
+                  width: 60%;
+                  height: 170px;
+                  padding: -25px;
+                  font-family: Tahoma, sans-serif;
+                  }
+               </style>
+                 <div class="form-group">
+                   <textarea  class="form-control custom-control" name="uin" placeholder="Enter your UIN here ...." id="styled" style="width:100%"></textarea>
+                   <script>
+                      function clear_textarea() {
+                         document.getElementById("styled").value = "";
+                      }
+                   </script>
+               </div>
+               <br>
+               <br>
+               <input type='submit' class="button1" id='smm2' name='submit' value='Manage Group'>
+         </div>
+         </form>
          <style>
             #position {
             width:60%;
@@ -144,6 +149,9 @@
             </img>
          </div>
          <div id="position">
+         </div>
+         <div id="error" class="alert alert-danger" role="alert" style="visibility:hidden; width: 50%; margin: auto;">
+            Oh snap! Change a few things up and try submitting again.
          </div>
          <br>
          <br>
