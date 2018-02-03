@@ -45,6 +45,37 @@ def createGroup():
         cnx.close()
         return json.dumps({"message": "Group is created successfully."})
 
+@application.route('/editGroup', methods=['POST'])
+def editGroup():
+    if request.method == "POST":
+
+        json_dict = json.loads(request.data)
+
+        postId = json_dict["postid"]
+        courseNumber = json_dict["courseNumber"]
+        startDate = datetime.date.strftime(datetime.datetime.strptime(json_dict["startDate"], '%m/%d/%Y %I:%M %p'), '%Y-%m-%d %H:%M')
+        endDate = datetime.date.strftime(datetime.datetime.strptime(json_dict["endDate"], '%m/%d/%Y %I:%M %p'), '%Y-%m-%d %H:%M')
+        location = json_dict["location"]
+        capacity = json_dict["capacity"]
+        contact = json_dict["contact"]
+
+        cnx = mysql.connector.connect(user='shubham7jain', password='mikeliu',
+                      host='db4free.net',
+                      port=3307,
+                      database='student_groups')
+        cursor = cnx.cursor()
+
+        editGroup = ("""UPDATE `Groups` SET `course` = %(courseNum)s, `startTime` = %(start)s, `endTime` = %(end)s, `location` = %(loc)s,  `capacity` = %(cap)s WHERE `postid` = %(postid)s""")
+
+        data = {'courseNum':courseNumber, 'start':startDate, 'end':endDate, 'loc':location, 'cap':capacity, 'postid':postId}
+
+        cursor.execute(editGroup, data)
+
+        cnx.commit()
+        cursor.close()
+        cnx.close()
+        return json.dumps({"message": "Group is updated successfully."})
+
 @application.route('/getGroups')
 def getAllPosts():
     cnx = mysql.connector.connect(user='shubham7jain', password='mikeliu',
@@ -56,6 +87,45 @@ def getAllPosts():
     query = ("SELECT `postid`, `course`, `name`, `uin`, `startTime`, `endTime`, `location`, `capacity`, `contact` from `Groups` where `capacity` > 0")
 
     cursor.execute(query)
+
+    tz = pytz.timezone('US/Central')
+    current = datetime.datetime.now(tz)
+    result = []
+    for (postid, course, name, uin, startTime, endTime, location, capacity, contact) in cursor:
+        end =  datetime.datetime.strptime(str(endTime), '%Y-%m-%d %H:%M:%S');
+        print(end, current)
+        current = current.replace(tzinfo=None)
+        print(current)
+        if(end > current):
+            result.append({
+                "postid": postid,
+                "course": course,
+                "name": name,
+                "uin": uin,
+                "startTime": str(startTime),
+                "endTime": str(endTime),
+                "location": location,
+                "capacity": capacity,
+                "contact": contact
+                })
+
+    cursor.close()
+    cnx.close()
+    return json.dumps(result)
+
+@application.route('/getGroupByUin',  methods=['POST'])
+def getPostsbyUIN():
+    cnx = mysql.connector.connect(user='shubham7jain', password='mikeliu',
+                      host='db4free.net',
+                      port=3307,
+                      database='student_groups')
+    cursor = cnx.cursor()
+
+    json_dict = json.loads(request.data)
+
+    query = ("SELECT `postid`, `course`, `name`, `uin`, `startTime`, `endTime`, `location`, `capacity`, `contact` from `Groups` where `capacity` > 0  and `uin` = %(uin)s")
+
+    cursor.execute(query, {'uin': json_dict['uin']})
 
     tz = pytz.timezone('US/Central')
     current = datetime.datetime.now(tz)
@@ -98,9 +168,9 @@ def joinGroup():
                       database='student_groups')
         cursor = cnx.cursor()
 
-        createGroup = ("""UPDATE `Groups` SET `capacity` = (`capacity` - 1) WHERE `postid` = %(postid)s""")
+        joinGroup = ("""UPDATE `Groups` SET `capacity` = (`capacity` - 1) WHERE `postid` = %(postid)s""")
 
-        cursor.execute(createGroup, {'postid':postId})
+        cursor.execute(joinGroup, {'postid':postId})
 
         cnx.commit()
         cursor.close()
