@@ -179,7 +179,8 @@
                  <div class="form-group row">
                    <label for="contact" class="col-sm-2 col-form-label">Contact Number</label>
                    <div class="col-sm-10">
-                     <input type="text" class="form-control" id="contact">
+                     <input type="text" class="form-control" id="contact" aria-describedby="contactHelp">
+                     <small id="contactHelp" class="form-text text-muted">Use following format XXX-XXX-XXXX. Eg. 123-123-3211</small>
                    </div>
                  </div>
                <br>
