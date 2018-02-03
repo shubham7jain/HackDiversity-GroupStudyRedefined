@@ -40,10 +40,36 @@
       </script>
       <script>
         function updateGroup(postid) {
-          alert(postid);
-          alert(document.getElementById('startTime').value);
+          var courseName = document.getElementById('course').value;
+          var startTime = document.getElementById('startTime').value;
+          var endTime = document.getElementById('endTime').value;
+          var capacity = document.getElementById('capacity').value;
+          var location = document.getElementById('location').value;
+          var contact = document.getElementById('contact').value;
 
-          return true;
+
+          $.ajax({
+               type: "POST",
+               url: "https://shrouded-fjord-25701.herokuapp.com/editGroup",
+               data: JSON.stringify({'postid': postid, 'courseNumber': courseName, 'startDate': startTime, 'endDate': endTime, 'capacity': capacity, 'location': location, 'contact': contact}),
+               // dataType: 'json',
+               contentType: 'application/json; charset=UTF-8',
+               success: function(data) {
+                   obje = JSON.parse(data)
+                   document.getElementById('position').innerHTML = '<b><center>'.concat(obje.message, '</center></b>');
+                   $( "#position" ).show( "slow", function() {
+                     
+                  });
+                   document.getElementById("loading").style.visibility = "hidden";
+                   return true;
+               },
+               error: function(xhr, textStatus, err) {
+                   document.getElementById("loading").style.visibility = "hidden";
+                   document.getElementById("error").style.visibility = "visible";
+                   return true;
+               }
+            });
+            return false;
         }
 
         function myFunction() {
