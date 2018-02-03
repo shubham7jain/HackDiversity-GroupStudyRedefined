@@ -65,7 +65,7 @@ def getAllPosts():
 
     cursor.close()
     cnx.close()
-    return json.dumps("{result:" + json.dumps(result) + "}")
+    return json.dumps(result)
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 33507))
