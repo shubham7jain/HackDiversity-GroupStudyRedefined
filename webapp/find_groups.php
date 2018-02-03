@@ -39,27 +39,31 @@
       <script>
         function myFunction() {
             document.getElementById("error").style.visibility = "hidden";
-           var url = document.getElementById('styled').value
-           var ratio = document.getElementById('ratio').value
            document.getElementById("loading").style.visibility = "visible";
             $.ajax({
-               type: "POST",
-               url: "https://precis.herokuapp.com/summaryurl",
-               data: JSON.stringify({'url': url, 'ratio': parseFloat(ratio)}),
-               // dataType: 'json',
+               type: "GET",
+               url: "https://shrouded-fjord-25701.herokuapp.com/getGroups",
                contentType: 'application/json; charset=UTF-8',
                success: function(data) {
                    //show content
-                   obje = JSON.parse(data)
-                   document.getElementById('position').innerHTML = '<b>'.concat(obje.summary, '</b>');
-                   $( "#position" ).show( "slow", function() {
+                   alert(data);
+                   // objes = JSON.parse(data)
+                   // rows = "<div id='events'><input class='search form-control' placeholder='Search for...'/><table class='table'><thead><tr><th><b>Index</b></th><th><b>Group Id</b></th><th><b>Host Name</b></th><th><b>Course</b></th></tr></thead>";
+                   // var i = 1;
+                   // for (var group in objes) {
+                   //    rows += "<tr><td class='index'><b>" + i + "</b></td><td class='group_id'>" + objes[group].group_id + "</td><td class='latitude'>" + objes[event].lat + "</td><td class='longitude'>" + objes[event].lon + "</td><td class='time'>" + objes[event].time + "</td></tr>";
+                   //    i = i + 1;
+                   // }
+                   // rows += "</tbody></table></div>"
+                  //  document.getElementById('position').innerHTML = rows;
+                  //  $( "#position" ).show( "slow", function() {
                      
-                  });
-                   document.getElementById('title').innerHTML = '<b>'.concat(obje.meta.title, '</b>');
-                   $( "#title" ).show( "slow", function() {
-                     
-                  });
-                   document.getElementById("loading").style.visibility = "hidden";
+                  // });
+                  //  var options = {
+                  //     valueNames: [ 'index', 'event_id', 'latitude', 'longitude', 'time' ]
+                  //   };
+                  //   var userList = new List('events', options);
+                  //  document.getElementById("loading").style.visibility = "hidden";
                    return true;
                },
                error: function(xhr, textStatus, err) {
@@ -97,7 +101,7 @@
       <div id="reli">
       </div>
    </head>
-   <body class="homepage">
+   <body class="homepage" onload="return myFunction();">
       <!-- Header -->
       <!-- Featured -->
       <div id="featured">
