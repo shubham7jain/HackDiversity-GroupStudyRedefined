@@ -51,21 +51,32 @@ def editGroup():
 
         json_dict = json.loads(request.data)
 
+        editGroup = "UPDATE `Groups` SET `postid` = %(postid)s"
+        courseNumber, startDate, endDate, location, capacity = "", "", "", "", 0
+
         postId = json_dict["postid"]
-        courseNumber = json_dict["courseNumber"]
-        startDate = datetime.date.strftime(datetime.datetime.strptime(json_dict["startDate"], '%Y-%m-%d %H:%M:%S'), '%Y-%m-%d %H:%M')
-        endDate = datetime.date.strftime(datetime.datetime.strptime(json_dict["endDate"], '%Y-%m-%d %H:%M:%S'), '%Y-%m-%d %H:%M')
-        location = json_dict["location"]
-        capacity = int(json_dict["capacity"])
-        contact = json_dict["contact"]
+        if "courseNumber" in json_dict:
+            courseNumber = json_dict["courseNumber"]
+            editGroup += ", `course` = %(courseNum)s"
+        if "startDate" in json_dict:
+            editGroup += ", `startTime` = %(start)s"
+            startDate = datetime.date.strftime(datetime.datetime.strptime(json_dict["startDate"], '%Y-%m-%d %H:%M:%S'), '%Y-%m-%d %H:%M')
+        if "endDate" in json_dict:
+            editGroup += ", `endTime` = %(end)s"
+            endDate = datetime.date.strftime(datetime.datetime.strptime(json_dict["endDate"], '%Y-%m-%d %H:%M:%S'), '%Y-%m-%d %H:%M')
+        if "location" in json_dict:
+            editGroup += ", `location` = %(loc)s"
+            location = json_dict["location"]
+        if "capacity" in json_dict:
+            editGroup += ",  `capacity` = %(cap)s"
+            capacity = int(json_dict["capacity"])
+        editGroup += " WHERE `postid` = %(postid)s"
 
         cnx = mysql.connector.connect(user='shubham7jain', password='mikeliu',
                       host='db4free.net',
                       port=3307,
                       database='student_groups')
         cursor = cnx.cursor()
-
-        editGroup = ("""UPDATE `Groups` SET `course` = %(courseNum)s, `startTime` = %(start)s, `endTime` = %(end)s, `location` = %(loc)s,  `capacity` = %(cap)s WHERE `postid` = %(postid)s""")
 
         data = {'courseNum':courseNumber, 'start':startDate, 'end':endDate, 'loc':location, 'cap':capacity, 'postid':postId}
 
@@ -123,7 +134,7 @@ def getPostsbyUIN():
 
     json_dict = json.loads(request.data)
 
-    query = ("SELECT `postid`, `course`, `name`, `uin`, `startTime`, `endTime`, `location`, `capacity`, `contact` from `Groups` where `capacity` > 0  and `uin` = %(uin)s")
+    query = ("SELECT `postid`, `course`, `name`, `uin`, `startTime`, `endTime`, `location`, `capacity`, `contact` from `Groups` where `uin` = %(uin)s")
 
     cursor.execute(query, {'uin': json_dict['uin']})
 
