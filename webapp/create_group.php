@@ -11,6 +11,8 @@
       <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700,500,900' rel='stylesheet' type='text/css'>
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
       <script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
       <script src="js/skel.min.js"></script>
       <script src="js/skel-panels.min.js"></script>
       <script src="js/init.js"></script>
@@ -144,7 +146,7 @@
                       <input type='text' class="form-control" id='startTime' />
                       <script type="text/javascript">
                           $(function () {
-                              $('#startTime').datepicker();
+                              $('#startTime').datetimepicker();
                           });
                       </script>
                    </div>
@@ -155,7 +157,7 @@
                       <input type='text' class="form-control" id='endTime' />
                       <script type="text/javascript">
                           $(function () {
-                              $('#endTime').datepicker();
+                              $('#endTime').datetimepicker();
                           });
                       </script>
                    </div>
