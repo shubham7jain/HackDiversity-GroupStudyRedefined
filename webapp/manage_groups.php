@@ -40,12 +40,11 @@
       </script>
       <script>
         function updateGroup(postid) {
-          var course = document.getElementById("course");
-          var timerange = document.getElementById("time")
+          alert(postid);
+          alert(document.getElementById('startTime').value);
         }
 
         function myFunction() {
-          alert()
             document.getElementById("error").style.visibility = "hidden";
            var uin = document.getElementById('uin').value;
            document.getElementById("loading").style.visibility = "visible";
@@ -61,7 +60,7 @@
                    rows = "<div id='groups'><table class='table'><thead><tr><th><b>Index</b></th><th><b>Host Name</b></th><th><b>Course</b></th><th><b>Start Time</b></th><th><b>End Time</b></th><th><b>Location</b></th><th><b>Capacity</b></th><th><b>Contact Number</b></th><th><b>Join Group</b></th></tr></thead>";
                    var i = 1;
                    for (var group in objes) {
-                      rows += "<tr><td class='index'><b>" + i + "</b></td><td class='name'>" + objes[group].name + "</td><td><input type='text' class='course' value='" + objes[group].course + "'/></td><td><input type='text' class='startTime' value=" + objes[group].startTime + "/></td><td><input type='text' class='endTime' value='" + objes[group].endTime + "'/><td><input type='text' class='location' value='" + objes[group].location + "'/></td><td><input type='text' class='capacity' value='" + objes[group].capacity + "'/></td><td><input type='text' class='contact' value='>" + objes[group].contact + "'/></td><td class='event_id'><button type=\"button\" class=\"button1\" onclick='return updateGroup(" + objes[group].postid + ");'>Update Group</button></td></tr>";
+                      rows += "<tr><td class='index'><b>" + i + "</b></td><td class='name'>" + objes[group].name + "</td><td><input type='text' id='course' value='" + objes[group].course + "'/></td><td><input type='text' id='startTime' value=" + objes[group].startTime + "/></td><td><input type='text' id='endTime' value='" + objes[group].endTime + "'/><td><input type='text' id='location' value='" + objes[group].location + "'/></td><td><input type='text' id='capacity' value='" + objes[group].capacity + "'/></td><td><input type='text' id='contact' value='" + objes[group].contact + "'/></td><td class='event_id'><button type=\"button\" class=\"button1\" onclick='return updateGroup(" + objes[group].postid + ");'>Update</button></td></tr>";
                       i = i + 1;
                    }
                    rows += "</tbody></table></div>"
