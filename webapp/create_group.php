@@ -45,7 +45,7 @@
            var startTime = document.getElementById('startTime').value;
            var endTime = document.getElementById('endTime').value;
            var location = document.getElementById('location').value;
-           var capacity = document.getElementById('capacity').value;
+           var capacity = document.getElementById('groupSize').value;
            document.getElementById("loading").style.visibility = "visible";
             $.ajax({
                type: "POST",
