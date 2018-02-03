@@ -2,6 +2,7 @@ from flask import Flask, request
 import json
 import mysql.connector
 import uuid
+import os
 
 application = Flask(__name__)
 
@@ -63,3 +64,7 @@ def getAllPosts():
     cursor.close()
     cnx.close()
     return json.dumps(result)
+
+if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 33507))
+    application.run(host='0.0.0.0', debug=True, port=port)
