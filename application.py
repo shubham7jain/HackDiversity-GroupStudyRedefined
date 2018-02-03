@@ -20,13 +20,14 @@ def createGroup():
     	location = json_dict["location"]
     	capacity = json_dict["capacity"]
 
-    	cnx = mysql.connector.connect(user='smalltigerson', password='123456',
-                              host='database2.cs.tamu.edu',
-                              database='smalltigerson')
+    	cnx = mysql.connector.connect(user='shubham7jain', password='mikeliu',
+                      host='db4free.net',
+                      port=3307,
+                      database='student_groups')
     	cursor = cnx.cursor()
 
-    	createGroup = ("INSERT INTO Groups "
-               "(postid, course, name, uin, startTime, endTime, location, capacity) "
+    	createGroup = ("INSERT INTO `Groups` "
+               "(`postid`, `course`, `name`, `uin`, `startTime`, `endTime`, `location`, `capacity`) "
                "VALUES (%s, %s, %s, %s, %s, %s, %s, %s)")
 
     	data = (uuid.uuid4().hex, courseNumber, name, uin, startDate, endDate, location, capacity)
@@ -40,12 +41,13 @@ def createGroup():
 
 @application.route('/getGroups')
 def getAllPosts():
-    cnx = mysql.connector.connect(user='smalltigerson', password='123456',
-                              host='database2.cs.tamu.edu',
-                              database='smalltigerson')
+    cnx = mysql.connector.connect(user='shubham7jain', password='mikeliu',
+                      host='db4free.net',
+                      port=3307,
+                      database='student_groups')
     cursor = cnx.cursor()
 
-    query = ("SELECT course, name, uin, startTime, endTime, location from Groups")
+    query = ("SELECT `course`, `name`, `uin`, `startTime`, `endTime`, `location` from `Groups`")
 
     cursor.execute(query)
 
