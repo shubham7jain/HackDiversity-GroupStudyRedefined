@@ -2,7 +2,7 @@ Flask==0.12.2
 Flask-Cors==3.0.3
 gunicorn==19.7.1
 jsonschema==2.6.0
-mysql-connector-python-rf==2.2.2
+mysql-connector-python==8.0.6
 requests==2.18.4
 SQLAlchemy==1.1.13
 uuid==1.30
