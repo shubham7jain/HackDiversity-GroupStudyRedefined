@@ -1,16 +1,16 @@
 (function () {
     'use strict';
-    
+
     angular
         .module('zigforumApp')
         .service('forums', forums);
-    
+
     forums.$inject = ['$http', 'API_URL'];
-    
+
     function forums($http, API_URL) {
         var sv = this;
-        var endpoint = API_URL + '/forums';
-        
+        var endpoint = API_URL + '/getGroups';
+
         /**
          * Retrieves all forums
          */
@@ -18,13 +18,13 @@
             var params = {};
             if (typeof page === 'undefined') { params.page = page; }
             if (typeof pageSize === 'undefined') { params.pageSize = pageSize; }
-            
+
             var config = {
                 method: 'GET',
                 url: endpoint,
                 params: params
             };
-            
+
             $http(config)
                 .then(function (response) {
                     onSuccess(response.data);
@@ -32,7 +32,7 @@
                     onFail(response.statusText);
                 });
         };
-        
+
         /**
          * Retrieves all top level forums
          */
@@ -40,13 +40,13 @@
             var params = {};
             if (typeof page === 'undefined') { params.page = page; }
             if (typeof pageSize === 'undefined') { params.pageSize = pageSize; }
-            
+
             var config = {
                 method: 'GET',
                 url: endpoint + '/toplevel',
                 params: params
             };
-            
+
             $http(config)
                 .then(function (response) {
                     onSuccess(response.data);
@@ -54,7 +54,7 @@
                     onFail(response.statusText);
                 });
         }
-        
+
         /**
          * Retrieves a forum by its id
          */
@@ -63,7 +63,7 @@
                 method: 'GET',
                 url: endpoint + '/' + id
             };
-            
+
             $http(config)
                 .then(function (response) {
                     onSuccess(response.data);
@@ -71,7 +71,7 @@
                     onFail(response.statusText);
                 });
         };
-        
+
         /**
          * Creates a new forum
          */
@@ -81,7 +81,7 @@
                 url: endpoint + '/create',
                 data: newForum
             };
-            
+
             $http(config)
                 .then(function (response) {
                     onSuccess(response.data);
@@ -89,7 +89,7 @@
                     onFail(response.statusText);
                 });
         };
-        
+
         /**
          * Edits an existing forum
          */
@@ -99,7 +99,7 @@
                 url: endpoint + '/' + id + '/edit',
                 data: editedForum
             };
-            
+
             $http(config)
                 .then(function (response) {
                     onSuccess(response.data);
@@ -107,16 +107,16 @@
                     onFail(response.statusText);
                 });
         };
-        
+
         /**
          * Deletes an existing forum
          */
         sv.delete = function (onSuccess, onFail, id) {
             var config = {
                 method: 'DELETE',
-                url: endpoint + '/' + id + '/delete' 
+                url: endpoint + '/' + id + '/delete'
             };
-            
+
             $http(config)
                 .then(function (response) {
                     onSuccess(response.data);
