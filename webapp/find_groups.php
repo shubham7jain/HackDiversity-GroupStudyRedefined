@@ -43,7 +43,7 @@
             $.ajax({
                type: "GET",
                url: "https://shrouded-fjord-25701.herokuapp.com/getGroups",
-               dataType: 'jsonp',
+               dataType: 'json',
                contentType: 'application/json; charset=UTF-8',
                success: function(data) {
                    //show content
