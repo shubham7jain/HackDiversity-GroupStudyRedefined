@@ -53,10 +53,10 @@ def editGroup():
 
         postId = json_dict["postid"]
         courseNumber = json_dict["courseNumber"]
-        startDate = datetime.date.strftime(datetime.datetime.strptime(json_dict["startDate"], '%m/%d/%Y %I:%M %p'), '%Y-%m-%d %H:%M')
-        endDate = datetime.date.strftime(datetime.datetime.strptime(json_dict["endDate"], '%m/%d/%Y %I:%M %p'), '%Y-%m-%d %H:%M')
+        startDate = datetime.date.strftime(datetime.datetime.strptime(json_dict["startDate"], '%Y-%m-%d %H:%M'), '%Y-%m-%d %H:%M')
+        endDate = datetime.date.strftime(datetime.datetime.strptime(json_dict["endDate"], '%Y-%m-%d %H:%M'), '%Y-%m-%d %H:%M')
         location = json_dict["location"]
-        capacity = json_dict["capacity"]
+        capacity = int(json_dict["capacity"])
         contact = json_dict["contact"]
 
         cnx = mysql.connector.connect(user='shubham7jain', password='mikeliu',
