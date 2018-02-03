@@ -141,13 +141,32 @@
                  <div class="form-group row">
                    <label for="startTime" class="col-sm-2 col-form-label">Start Time</label>
                    <div class="col-sm-10">
-                     <input type="text" class="form-control" id="startTime">
+                     <div class="row">
+                      <div class='col-sm-6'>
+                          <input type='text' class="form-control" id='startTime' />
+                      </div>
+                      <script type="text/javascript">
+                          $(function () {
+                              $('#startTime').datetimepicker();
+                          });
+                      </script>
+                  </div>
                    </div>
                  </div>
                  <div class="form-group row">
                    <label for="endTime" class="col-sm-2 col-form-label">End Time</label>
                    <div class="col-sm-10">
-                     <input type="text" class="form-control" id="endTime">
+                      <div class="col-sm-10">
+                       <div class="row">
+                        <div class='col-sm-6'>
+                            <input type='text' class="form-control" id='endTime' />
+                        </div>
+                        <script type="text/javascript">
+                            $(function () {
+                                $('#endTime').datetimepicker();
+                            });
+                        </script>
+                    </div>
                    </div>
                  </div>
                  <div class="form-group row">

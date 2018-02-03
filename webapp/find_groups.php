@@ -116,7 +116,7 @@
             #position {
             width:80%;
             margin:0 auto;
-            padding-top: 25px;
+            padding-top: 0px;
             }
          </style>
          <script></script>
@@ -127,14 +127,9 @@
                });
             });
          </script>
-         <br/>
-         <br/>
          <div id="loading" style="visibility:hidden;">
             <img src="ajax-loader.gif" style="width:25% ">
             </img>
-         </div>
-         <div id="title">
-            
          </div>
          <div id="position">
          </div>
