@@ -24,6 +24,7 @@ def createGroup():
         endDate = datetime.date.strftime(datetime.datetime.strptime(json_dict["endDate"], '%m/%d/%Y %I:%M %p'), '%Y-%m-%d %H:%M')
         location = json_dict["location"]
         capacity = json_dict["capacity"]
+        contact = json_dict["contact"]
 
         cnx = mysql.connector.connect(user='shubham7jain', password='mikeliu',
                       host='db4free.net',
@@ -32,10 +33,10 @@ def createGroup():
         cursor = cnx.cursor()
 
         createGroup = ("INSERT INTO `Groups` "
-               "(`postid`, `course`, `name`, `uin`, `startTime`, `endTime`, `location`, `capacity`) "
-               "VALUES (%s, %s, %s, %s, %s, %s, %s, %s)")
+               "(`postid`, `course`, `name`, `uin`, `startTime`, `endTime`, `location`, `capacity`, `contact`) "
+               "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)")
 
-        data = (uuid.uuid4().hex, courseNumber, name, uin, startDate, endDate, location, capacity)
+        data = (uuid.uuid4().hex, courseNumber, name, uin, startDate, endDate, location, capacity, contact)
 
         cursor.execute(createGroup, data)
 
@@ -52,14 +53,14 @@ def getAllPosts():
                       database='student_groups')
     cursor = cnx.cursor()
 
-    query = ("SELECT `postid`, `course`, `name`, `uin`, `startTime`, `endTime`, `location`, `capacity` from `Groups`")
+    query = ("SELECT `course`, `name`, `uin`, `startTime`, `endTime`, `location`, `capacity`, `contact` from `Groups` where `capacity` > 0")
 
     cursor.execute(query)
 
     tz = pytz.timezone('US/Central')
     current = datetime.datetime.now(tz)
     result = []
-    for (postid, course, name, uin, startTime, endTime, location, capacity) in cursor:
+    for (postid, course, name, uin, startTime, endTime, location, capacity, contact) in cursor:
         end =  datetime.datetime.strptime(str(endTime), '%Y-%m-%d %H:%M:%S');
         print(end, current)
         current = current.replace(tzinfo=None)
@@ -73,7 +74,8 @@ def getAllPosts():
                 "startTime": str(startTime),
                 "endTime": str(endTime),
                 "location": location,
-                "capacity": capacity
+                "capacity": capacity,
+                "contact": contact
                 })
 
     cursor.close()
