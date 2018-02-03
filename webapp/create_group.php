@@ -118,6 +118,8 @@
                   }
                </style>
                  <div class="form-group row">
+                 </div>
+                 <div class="form-group row">
                    <label for="email" class="col-sm-2 col-form-label">Email</label>
                    <div class="col-sm-10">
                      <input type="text" class="form-control" id="email">
@@ -147,16 +149,9 @@
                      <input type="text" class="form-control" id="endTime" placeholder="endTime">
                    </div>
                  </div>
-               <script>
-                  function clear_textarea() {
-                     document.getElementById("styled").value = "";
-                  }
-                  
-               </script>
                <br>
                <br>
-               <input type="button" id="smm" value="Clear" class="button1" onclick="javascript:clear_textarea();">
-               <input type='submit' class="button1" id='smm2' name='submit' value='Summarize'>
+               <input type='submit' class="button1" id='smm2' name='submit' value='Create Group'>
          </div>
          </form>
          <style>
