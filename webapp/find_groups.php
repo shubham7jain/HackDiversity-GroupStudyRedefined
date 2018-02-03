@@ -44,6 +44,7 @@
                type: "GET",
                url: "https://shrouded-fjord-25701.herokuapp.com/getGroups",
                contentType: 'application/json; charset=UTF-8',
+               dataType: 'jsonp',
                success: function(data) {
                    //show content
                    alert(data);
