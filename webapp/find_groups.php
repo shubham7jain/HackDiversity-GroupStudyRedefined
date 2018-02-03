@@ -48,10 +48,10 @@
                success: function(data) {
                    //show content
                    objes = JSON.parse(data)
-                   rows = "<div id='groups'><table class='table'><thead><tr><th><b>Index</b></th><th><b>Host Name</b></th><th><b>Course</b></th><th><b>Time range</b></th><th><b>Location</b></th><th><b>Capacity</b></th></tr></thead>";
+                   rows = "<div id='groups'><table class='table'><thead><tr><th><b>Index</b></th><th><b>Host Name</b></th><th><b>Course</b></th><th><b>Time range</b></th><th><b>Location</b></th><th><b>Capacity</b></th><th><b>Join Group</b></th></tr></thead>";
                    var i = 1;
                    for (var group in objes) {
-                      rows += "<tr><td class='index'><b>" + i + "</b></td><td class='name'>" + objes[group].name + "</td><td class='course'>" + objes[group].course + "</td><td class='timerange'>" + objes[group].startTime + " - " + objes[group].endTime + "</td><td class='location'>" + objes[group].location + "</td><td class='capacity'>" + objes[group].capacity + "</td></tr>";
+                      rows += "<tr><td class='index'><b>" + i + "</b></td><td class='name'>" + objes[group].name + "</td><td class='course'>" + objes[group].course + "</td><td class='timerange'>" + objes[group].startTime + " - " + objes[group].endTime + "</td><td class='location'>" + objes[group].location + "</td><td class='capacity'>" + objes[group].capacity + "</td><td><input type='button'>Join</td></tr>";
                       i = i + 1;
                    }
                    rows += "</tbody></table></div>"
@@ -152,20 +152,20 @@
          <div class="row">
             <section class="4u">
                <span class="pennant"><span class="fa fa-globe"></span></span>
-               <h3>Precis</h3>
-               <p>Summarize your articles, splitting the most important sentences and ranking a sentence based on importance.</p>
-               <a href="https://github.com/shubham7jain/precis" class="button button-style1">Read More</a>
+               <h3>About</h3>
+               <p>Group Study helps in much faster understanding and removes blockers of everyone.</p>
+               <a href="https://github.com/shubham7jain/HackDiversity-GroupStudyRedefined" class="button button-style1">Read More</a>
             </section>
             <section class="4u">
                <span class="pennant"><span class="fa fa-lock"></span></span>
-               <h3>API</h3>
-               <p>This tool is accessible by an API, integrate our api to generate summaries for a given text on your website or application.</p>
+               <h3>Built</h3>
+               <p>This is a application built by some hackers in Tamu Diversity Hackathon 2018.</p>
                <a href="" target="_blank" class="button button-style1">Read More</a>
             </section>
             <section class="4u">
                <span class="pennant"><span class="fa fa-globe"></span></span>
-               <h3>The Algorithm</h3>
-               <p>A specific algorithm for extracting the most important points of the original document, using extraction based summarization. </p>
+               <h3>Design</h3>
+               <p>It is non-authenticated website so anyone can create the group in which a person could invite others to join in.</p>
                <a href="https://github.com/shubham7jain/precis" class="button button-style1">Read More</a>
             </section>
          </div>
@@ -185,7 +185,7 @@
       <!-- Copyright -->
       <div id="copyright">
          <div class="container">
-            © All Copyrights Reserved by <a href="http://precis.com">precis.com</a>, College Station, 77840, Contact us: <a href="mailto:precis@tamu.edu">precis@tamu.edu</a>
+            © All Copyrights Reserved by <a href="http://groupStudy.com">groupStudy.com</a>, College Station, 77840, Contact us: <a href="mailto:groupStudy@tamu.edu">groupStudy@tamu.edu</a>
          </div>
       </div>
    </body>
