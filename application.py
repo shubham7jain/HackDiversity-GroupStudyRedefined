@@ -62,6 +62,8 @@ def getAllPosts():
     for (course, name, uin, startTime, endTime, location, capacity) in cursor:
         end =  datetime.datetime.strptime(str(endTime), '%Y-%m-%d %H:%M:%S');
         print(end, current)
+        current = current.replace(tzinfo=None)
+        print(current)
         if(end > current):
         	result.append({
         		"course": course,
